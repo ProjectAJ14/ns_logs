@@ -1,6 +1,8 @@
 library ns_logs;
 
+import 'package:flutter/material.dart';
 import 'package:ns_logs/api/api.dart';
+import 'package:ns_logs/dev_screen/dev_screen.dart';
 
 import 'logs/logs.dart';
 
@@ -10,9 +12,9 @@ export 'api/api_constants.dart';
 export 'api/dev_api_service.dart';
 export 'logs/logs.dart';
 
-AppLogs nsLog = AppLogs();
+NsLogs nsLog = NsLogs();
 
-class AppLogs {
+class NsLogs {
   List<String> logTypes = AppLogTag.defaultLogTypes;
   String baseUrl = "";
   Map<String, dynamic> headers = defaultMapHeaders;
@@ -24,8 +26,8 @@ class AppLogs {
   }
 
   void setBaseUrl(String baseUrl, {required Map<String, String> headers}) {
-    baseUrl = baseUrl;
-    headers = headers;
+    this.baseUrl = baseUrl;
+    this.headers = headers;
     if (baseUrl.isNotEmpty) {
       AppAPI.setBaseURL(baseUrl);
     } else {
@@ -35,5 +37,14 @@ class AppLogs {
 
   void rawParseConditions(Function rawParserConditions) {
     rawParserConditions = rawParserConditions;
+  }
+
+  void openDevScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const DevScreen(),
+      ),
+    );
   }
 }

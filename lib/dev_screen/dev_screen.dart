@@ -24,7 +24,6 @@ class DevScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           titleSpacing: 0,
-          backgroundColor: Colors.white,
           title: const TabBar(
             tabs: [
               Tab(child: Text("APIS")),
