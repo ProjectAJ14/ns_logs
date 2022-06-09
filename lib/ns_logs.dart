@@ -35,6 +35,10 @@ class NsLogs {
     }
   }
 
+  void setDefaultHeaders(Map<String, String> headers) {
+    this.headers = headers;
+  }
+
   void rawParseConditions(Function rawParserConditions) {
     rawParserConditions = rawParserConditions;
   }
