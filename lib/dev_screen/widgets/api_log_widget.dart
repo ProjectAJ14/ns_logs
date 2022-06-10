@@ -40,13 +40,12 @@ class _ApiLogsWidgetState extends State<ApiLogsWidget> {
           children: <ExpansionPanel>[
             ...DevAPIService.instance.apiCalls.where((element) {
               if (_showOnlyErrors) {
-                return element.response!.getInt(APIKeys.statusCode) <
-                    APIStatusCode.success;
+                return element.statusCode < APIStatusCode.success;
               }
               return true;
             }).map(
               (apiCall) {
-                var statusCode = apiCall.response!.getInt(APIKeys.statusCode);
+                var statusCode = apiCall.statusCode;
                 var success = statusCode < APIStatusCode.badRequest;
 
                 var color = success ? Colors.green : Colors.red;

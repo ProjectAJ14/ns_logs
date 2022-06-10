@@ -1,5 +1,7 @@
 //IGNORE FILE FOR REVIEW AS THIS IS FOR DEV
 
+import 'package:ns_logs/utils/map_extension.dart';
+
 int get _maxTapCount => 3;
 
 ///
@@ -62,6 +64,9 @@ class AppAPIsCall {
   ///
   Duration duration;
 
+  ///
+  int statusCode;
+
   /// AppAPIsCall Constructor
   AppAPIsCall({
     required this.id,
@@ -71,5 +76,10 @@ class AppAPIsCall {
     required this.data,
     required this.response,
     required this.duration,
+    required this.statusCode,
   });
+
+  @override
+  String toString() => '[$type][$statusCode] $path'
+      '${response!.toPretty()}';
 }
