@@ -16,9 +16,7 @@ dependencies:
   let_log:
     git: https://github.com/rajan-nonstopio/let_log.git
   fluttertoast: ^8.0.9
-  connectivity_wrapper:
-    git: https://github.com/rajan-nonstopio/connectivity_wrapper.git
-  intl: ^0.17.0
+
 
 dev_dependencies:
   flutter_test:
