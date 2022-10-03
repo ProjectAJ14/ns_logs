@@ -26,9 +26,9 @@ class DevScreen extends StatelessWidget {
           titleSpacing: 0,
           title: const TabBar(
             tabs: [
-              Tab(child: Text("APIS")),
-              Tab(child: Text("LOGS")),
               Tab(child: Text("OPTIONS")),
+              Tab(child: Text("LOGS")),
+              Tab(child: Text("APIS")),
             ],
           ),
           elevation: 0,
@@ -39,9 +39,9 @@ class DevScreen extends StatelessWidget {
             Flexible(
               child: TabBarView(
                 children: [
-                  const ApiLogsWidget(),
-                  const LogWidget(),
                   optionalWidget ?? _buildOptions(),
+                  const LogWidget(),
+                  const ApiLogsWidget(),
                 ],
               ),
             ),
@@ -55,10 +55,8 @@ class DevScreen extends StatelessWidget {
   }
 
   Widget _buildOptions() {
-    return Container(
-      child: const Center(
-        child: Text("Build Options"),
-      ),
+    return const Center(
+      child: Text("Build Options"),
     );
   }
 }
